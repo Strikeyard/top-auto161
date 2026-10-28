@@ -582,7 +582,7 @@ footer{position:relative;overflow:hidden}
 
 <section id="gallery" style="padding-top:0">
   <div class="wrap">
-    <div class="head-row"><div><div class="label rv">Выдачи</div><h2 class="rv">Ключи уже <em>у них</em></h2></div><p class="lead rv" style="max-width:420px">39 выдач только из последних — каждая машина с рамкой TOP AUTO 161.</p></div>
+    <div class="head-row"><div><div class="label rv">Выдачи</div><h2 class="rv">Ключи уже <em>у них</em></h2></div><p class="lead rv" style="max-width:420px">Каждая машина — с рамкой TOP AUTO 161. Лично передаём ключи в Ростове.</p></div>
     <div class="gal2" id="gal">
       <a href="img/handovers/h01.jpg" data-lb><img src="img/handovers/h01.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
       <a href="img/handovers/h02.jpg" data-lb><img src="img/handovers/h02.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
@@ -624,7 +624,7 @@ footer{position:relative;overflow:hidden}
       <a class="more-ph" href="img/handovers/h38.jpg" data-lb><img src="img/handovers/h38.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
       <a class="more-ph" href="img/handovers/h39.jpg" data-lb><img src="img/handovers/h39.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
     </div>
-    <div class="gal-act"><button class="btn btn-ghost" id="galmore">Показать все 39 выдач</button><a class="btn btn-red" href="#quiz">Хочу так же</a></div>
+    <div class="gal-act"><button class="btn btn-ghost" id="galmore">Показать другие выдачи</button><a class="btn btn-red" href="#quiz">Хочу так же</a></div>
   </div>
 </section>
 
@@ -839,7 +839,7 @@ document.querySelectorAll('.vnav button').forEach(b=>b.addEventListener('click',
 const lb=document.getElementById('lb'), lbi=lb.querySelector('img');
 document.querySelectorAll('[data-lb]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lbi.src=a.getAttribute('href');lb.hidden=false}));
 const gm=document.getElementById('galmore');
-gm.addEventListener('click',()=>{const g=document.getElementById('gal');g.classList.toggle('open');gm.textContent=g.classList.contains('open')?'Свернуть':'Показать все 39 выдач'});
+gm.addEventListener('click',()=>{const g=document.getElementById('gal');g.classList.toggle('open');gm.textContent=g.classList.contains('open')?'Свернуть':'Показать другие выдачи'});
 document.querySelectorAll('.tnav button').forEach(b=>b.addEventListener('click',()=>{const r=document.getElementById('tgrid');r.scrollBy({left:r.clientWidth*.85*b.dataset.t,behavior:'smooth'})}));
 lb.addEventListener('click',()=>{lb.hidden=true;lbi.src=''});
 
