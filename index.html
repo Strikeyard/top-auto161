@@ -435,6 +435,36 @@ footer{position:relative;overflow:hidden}
 /* case photos: soft fade into the card */
 .case .ph::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(0deg,rgba(20,20,22,.6),transparent);pointer-events:none}
 
+
+/* text reviews */
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start}
+.tcard{margin:0;border-radius:var(--r);overflow:hidden;background:var(--surf);border:1px solid var(--line);display:flex;flex-direction:column}
+.tph{aspect-ratio:4/3;overflow:hidden}.tph img{width:100%;height:100%;object-fit:cover}
+.tbd{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.ttop{display:flex;justify-content:space-between;align-items:center}
+.ttop .stars{color:#ffb020;letter-spacing:2px;font-size:14px}
+.msg{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}
+.msg .ms{width:15px;height:15px}
+.tcard blockquote{margin:0;font-size:15px;line-height:1.6;color:var(--soft)}
+.tcard figcaption{display:flex;align-items:center;gap:10px}
+.tcard figcaption i{width:38px;height:38px;border-radius:50%;background:var(--surf2);border:1px solid var(--line2);display:grid;place-items:center;font-style:normal;font-weight:800}
+.tcard figcaption b{display:block;font-size:14.5px}.tcard figcaption small{color:var(--muted);font-size:12.5px}
+.orig{font-size:13px;font-weight:700;color:var(--red2);margin-top:auto}
+.tmore{margin-top:22px;text-align:center}.tmore a{color:var(--soft);font-weight:700;border-bottom:1px solid var(--line2)}
+.tnav{display:none}
+@media(max-width:1100px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.tgrid{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:84%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.tgrid::-webkit-scrollbar{display:none}.tcard{scroll-snap-align:start}.tnav{display:flex}}
+
+/* handover gallery */
+.gal2{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gal2 a{display:block;aspect-ratio:3/4;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.gal2 img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.gal2 a:hover img{transform:scale(1.05)}
+.gal2 .more-ph{display:none}
+.gal2.open .more-ph{display:block}
+.gal-act{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+@media(max-width:800px){.gal2{grid-template-columns:repeat(2,1fr)}}
+
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
@@ -456,7 +486,7 @@ footer{position:relative;overflow:hidden}
 <header id="hdr">
   <div class="wrap hdr">
     <a href="#top" class="brand" aria-label="Top Auto 161"><img class="c" src="img/logo-circle.png" alt=""><img class="w" src="img/wordmark.png" alt="Top Auto 161"></a>
-    <nav><a href="#intro">О нас</a><a href="#reviews">Отзывы</a><a href="#countries">Направления</a><a href="#cases">Цены</a><a href="#team">Команда</a><a href="#faq">Вопросы</a></nav>
+    <nav><a href="#intro">О нас</a><a href="#treviews">Отзывы</a><a href="#countries">Направления</a><a href="#cases">Цены</a><a href="#team">Команда</a><a href="#faq">Вопросы</a></nav>
     <div class="hdr-r">
       <a class="btn btn-ghost hdr-contact" href="#contacts" data-contact>Связаться</a>
       <a class="btn btn-red hdr-calc" href="#quiz">Рассчитать стоимость</a>
@@ -526,23 +556,72 @@ footer{position:relative;overflow:hidden}
   </div>
 </section>
 
-<section id="gallery" style="padding-top:0">
+<section id="treviews" style="padding-top:0">
   <div class="wrap">
-    <div class="head-row"><div><div class="label rv">Выдачи</div><h2 class="rv">Ключи уже <em>у них</em></h2></div><a class="btn btn-red rv" href="#quiz">Хочу так же</a></div>
-    <div class="gal" id="gal">
-      <a class="g1 rv" href="img/gallery/w5.jpg"><img src="img/gallery/w5.jpg" alt="Выдача Audi" loading="lazy"></a>
-      <a class="rv" href="img/gallery/h1.jpg"><img src="img/gallery/h1.jpg" alt="Выдача Mazda" loading="lazy"></a>
-      <a class="rv" href="img/gallery/w2.jpg"><img src="img/gallery/w2.jpg" alt="Выдача кроссовера" loading="lazy"></a>
-      <a class="g2 rv" href="img/gallery/w4.jpg"><img src="img/gallery/w4.jpg" alt="Выдача Volkswagen" loading="lazy"></a>
-      <a class="rv" href="img/gallery/h4.jpg"><img src="img/gallery/h4.jpg" alt="Выдача Kia" loading="lazy"></a>
-      <a class="rv" href="img/gallery/w8.jpg"><img src="img/gallery/w8.jpg" alt="Выдача Volkswagen" loading="lazy"></a>
-      <a class="rv" href="img/gallery/w3.jpg"><img src="img/gallery/w3.jpg" alt="Выдача автомобиля семье" loading="lazy"></a>
-      <a class="rv" href="img/gallery/w7.jpg"><img src="img/gallery/w7.jpg" alt="Выдача Audi" loading="lazy"></a>
-      <a class="rv" href="img/gallery/h8.jpg"><img src="img/gallery/h8.jpg" alt="Выдача автомобиля" loading="lazy"></a>
-      <a class="rv" href="img/gallery/w1.jpg"><img src="img/gallery/w1.jpg" alt="Выдача Mazda" loading="lazy"></a>
+    <div class="head-row"><div><div class="label rv">Отзывы клиентов</div><h2 class="rv">Что нам пишут <em>после покупки</em></h2></div><p class="lead rv" style="max-width:420px">Реальные сообщения клиентов из WhatsApp и MAX. Нажмите «Оригинал переписки», чтобы увидеть скриншот.</p></div>
+    <div class="tgrid" id="tgrid">
+      <figure class="tcard rv"><div class="tph"><img style="object-position:50% 40%" src="img/reviews/p-audi.jpg" alt="Алина, Audi Q3" loading="lazy"></div><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-max"/></svg>MAX</span></div><blockquote>Ваши профессиональные знания и ответственный подход выше всех похвал. Мне всё подробно разжевали, подобрали и подсказали, всегда на связи. В итоге я получила авто намного лучше моих ожиданий!</blockquote><figcaption><i>А</i><div><b>Алина</b><small>Audi Q3</small></div></figcaption><a class="orig" href="img/reviews/s-alina.jpg" data-lb>Оригинал переписки →</a></div></figure>
+      <figure class="tcard rv"><div class="tph"><img style="object-position:50% 72%" src="img/reviews/p-changan.jpg" alt="Юлия, Changan Uni-Z" loading="lazy"></div><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-max"/></svg>MAX</span></div><blockquote>Для нас покупка машины — большое событие, мы долго раздумывали, боялись рисков. Друг порекомендовал вас — и мы не пожалели! Всегда на связи, на любой вопрос быстрый ответ. Всё чётко, по делу.</blockquote><figcaption><i>Ю</i><div><b>Юлия</b><small>Changan Uni-Z</small></div></figcaption><a class="orig" href="img/reviews/s-yulia.jpg" data-lb>Оригинал переписки →</a></div></figure>
+      <figure class="tcard rv"><div class="tph"><img style="object-position:50% 68%" src="img/reviews/p-honda.jpg" alt="Виктория, Honda Crider" loading="lazy"></div><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-wa"/></svg>WhatsApp</span></div><blockquote>Рашид с Иваном были 24/7 на связи. Выполнили работу на все 100%! За свой счёт устранили некоторые недостатки, намыли машину — была как новая, ещё и подарок подарили. Рекомендуем!</blockquote><figcaption><i>В</i><div><b>Виктория</b><small>Honda Crider</small></div></figcaption><a class="orig" href="img/reviews/s-honda.jpg" data-lb>Оригинал переписки →</a></div></figure>
+      <figure class="tcard rv"><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-wa"/></svg>WhatsApp</span></div><blockquote>Радости нет предела, и у мужа тоже, хотя был настроен скептически. Спасибо за скорость — 10 дней, и она у нас! Всё показали, рассказали и сопроводили до трассы на Сальск. Однозначно будем рекомендовать ТОП AUTO 161!</blockquote><figcaption><i>О</i><div><b>Оксана</b><small>доставка за 10 дней</small></div></figcaption><a class="orig" href="img/reviews/s-oksana.jpg" data-lb>Оригинал переписки →</a></div></figure>
+      <figure class="tcard rv"><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-max"/></svg>MAX</span></div><blockquote>Эмоции исключительно положительные. Машина комфортная, ходовка понравилась. Сработали чётко, однозначно рекомендовать вас буду. Куда лучше, чем на нашем рынке машину искать.</blockquote><figcaption><i>М</i><div><b>Максим Б.</b><small>Renault Samsung</small></div></figcaption><a class="orig" href="img/reviews/s-maksim.jpg" data-lb>Оригинал переписки →</a></div></figure>
+      <figure class="tcard rv"><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-max"/></svg>MAX</span></div><blockquote>Прошло почти 2 месяца. Когда меня спрашивают, как машина, говорю: «Теперь я езжу как королева». Комфортно, всё вмещается, мягко едет. Собираем деньги, чтобы поменять вторую!</blockquote><figcaption><i>А</i><div><b>Анастасия М.</b><small>Volkswagen Tayron</small></div></figcaption><a class="orig" href="img/reviews/s-anastasia.jpg" data-lb>Оригинал переписки →</a></div></figure>
+      <figure class="tcard rv"><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-max"/></svg>MAX</span></div><blockquote>Доехали до Казани за 19 часов. Утром поставили машину на учёт — встала без проблем. На трассе нормально набирает скорость на обгон. Ещё раз спасибо!</blockquote><figcaption><i>В</i><div><b>Виктор Г.</b><small>доехали до Казани</small></div></figcaption><a class="orig" href="img/reviews/s-viktor.jpg" data-lb>Оригинал переписки →</a></div></figure>
+      <figure class="tcard rv"><div class="tbd"><div class="ttop"><span class="stars">★★★★★</span><span class="msg"><svg class="ms"><use href="#i-wa"/></svg>WhatsApp</span></div><blockquote>Машина полностью соответствует описанию и характеристикам. Благодарность за то, что всегда были на связи и на каждом этапе сообщали о её местонахождении. Смело буду рекомендовать вашу компанию.</blockquote><figcaption><i>В</i><div><b>Владимир</b><small>Audi Q3 Sportback</small></div></figcaption><a class="orig" href="img/reviews/s-vladimir.jpg" data-lb>Оригинал переписки →</a></div></figure>
     </div>
+    <div class="vnav tnav"><button aria-label="Назад" data-t="-1"><svg><use href="#i-arrow"/></svg></button><button aria-label="Вперёд" data-t="1"><svg><use href="#i-arrow"/></svg></button></div>
+    <p class="tmore rv"><a href="https://vk.ru/album-228388209_305811248" target="_blank" rel="noopener">Ещё 50+ отзывов в нашем ВКонтакте →</a></p>
   </div>
 </section>
+
+<section id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="head-row"><div><div class="label rv">Выдачи</div><h2 class="rv">Ключи уже <em>у них</em></h2></div><p class="lead rv" style="max-width:420px">39 выдач только из последних — каждая машина с рамкой TOP AUTO 161.</p></div>
+    <div class="gal2" id="gal">
+      <a href="img/handovers/h01.jpg" data-lb><img src="img/handovers/h01.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h02.jpg" data-lb><img src="img/handovers/h02.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h03.jpg" data-lb><img src="img/handovers/h03.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h04.jpg" data-lb><img src="img/handovers/h04.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h05.jpg" data-lb><img src="img/handovers/h05.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h06.jpg" data-lb><img src="img/handovers/h06.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h07.jpg" data-lb><img src="img/handovers/h07.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h08.jpg" data-lb><img src="img/handovers/h08.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h09.jpg" data-lb><img src="img/handovers/h09.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h10.jpg" data-lb><img src="img/handovers/h10.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h11.jpg" data-lb><img src="img/handovers/h11.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a href="img/handovers/h12.jpg" data-lb><img src="img/handovers/h12.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h13.jpg" data-lb><img src="img/handovers/h13.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h14.jpg" data-lb><img src="img/handovers/h14.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h15.jpg" data-lb><img src="img/handovers/h15.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h16.jpg" data-lb><img src="img/handovers/h16.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h17.jpg" data-lb><img src="img/handovers/h17.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h18.jpg" data-lb><img src="img/handovers/h18.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h19.jpg" data-lb><img src="img/handovers/h19.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h20.jpg" data-lb><img src="img/handovers/h20.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h21.jpg" data-lb><img src="img/handovers/h21.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h22.jpg" data-lb><img src="img/handovers/h22.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h23.jpg" data-lb><img src="img/handovers/h23.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h24.jpg" data-lb><img src="img/handovers/h24.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h25.jpg" data-lb><img src="img/handovers/h25.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h26.jpg" data-lb><img src="img/handovers/h26.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h27.jpg" data-lb><img src="img/handovers/h27.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h28.jpg" data-lb><img src="img/handovers/h28.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h29.jpg" data-lb><img src="img/handovers/h29.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h30.jpg" data-lb><img src="img/handovers/h30.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h31.jpg" data-lb><img src="img/handovers/h31.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h32.jpg" data-lb><img src="img/handovers/h32.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h33.jpg" data-lb><img src="img/handovers/h33.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h34.jpg" data-lb><img src="img/handovers/h34.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h35.jpg" data-lb><img src="img/handovers/h35.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h36.jpg" data-lb><img src="img/handovers/h36.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h37.jpg" data-lb><img src="img/handovers/h37.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h38.jpg" data-lb><img src="img/handovers/h38.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+      <a class="more-ph" href="img/handovers/h39.jpg" data-lb><img src="img/handovers/h39.jpg" alt="Выдача автомобиля клиентам Top Auto 161" loading="lazy"></a>
+    </div>
+    <div class="gal-act"><button class="btn btn-ghost" id="galmore">Показать все 39 выдач</button><a class="btn btn-red" href="#quiz">Хочу так же</a></div>
+  </div>
+</section>
+
 <section id="why" style="padding-top:0">
   <div class="wrap">
     <div class="head-row"><div><div class="label rv">Почему нам доверяют</div><h2 class="rv">Покупка машины из-за границы — <em>без риска и сюрпризов</em></h2></div></div>
@@ -752,7 +831,10 @@ cards.forEach(c=>{const v=c.querySelector('video');
 document.querySelectorAll('.vnav button').forEach(b=>b.addEventListener('click',()=>{const r=document.getElementById('vids');r.scrollBy({left:(r.clientWidth/1.5)*b.dataset.d,behavior:'smooth'})}));
 // gallery lightbox
 const lb=document.getElementById('lb'), lbi=lb.querySelector('img');
-document.querySelectorAll('#gal a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lbi.src=a.getAttribute('href');lb.hidden=false}));
+document.querySelectorAll('[data-lb]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lbi.src=a.getAttribute('href');lb.hidden=false}));
+const gm=document.getElementById('galmore');
+gm.addEventListener('click',()=>{const g=document.getElementById('gal');g.classList.toggle('open');gm.textContent=g.classList.contains('open')?'Свернуть':'Показать все 39 выдач'});
+document.querySelectorAll('.tnav button').forEach(b=>b.addEventListener('click',()=>{const r=document.getElementById('tgrid');r.scrollBy({left:r.clientWidth*.85*b.dataset.t,behavior:'smooth'})}));
 lb.addEventListener('click',()=>{lb.hidden=true;lbi.src=''});
 
 // prefilled WhatsApp messages
